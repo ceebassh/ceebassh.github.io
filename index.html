@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>CEEBASSH</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:    #111008;
+      --dark2:   #1C1810;
+      --gold:    #C4A882;
+      --gold2:   #E8D4B8;
+      --cream:   #F5EDE0;
+      --mid:     #7A6550;
+      --border:  rgba(196,168,130,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 0 60px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .banner {
+      width: 100%;
+      max-width: 600px;
+      background: linear-gradient(160deg, #1C1810 0%, #2C2416 50%, #1A1610 100%);
+      padding: 52px 32px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 120%, rgba(196,168,130,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 20% 20%, rgba(196,168,130,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .banner-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; opacity: 0.8; }
+    .banner-name { font-family: 'Playfair Display', serif; font-size: clamp(52px, 14vw, 72px); font-weight: 900; color: var(--cream); letter-spacing: 6px; line-height: 1; position: relative; }
+    .banner-divider { width: 48px; height: 1px; background: var(--gold); margin: 20px auto; opacity: 0.6; }
+    .banner-tagline { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--mid); font-weight: 400; }
+
+    .profile { width: 100%; max-width: 600px; padding: 28px 24px 8px; text-align: center; }
+    .profile-desc { font-size: 14px; color: var(--mid); line-height: 1.7; font-weight: 300; letter-spacing: 0.3px; }
+    .profile-desc em { font-style: italic; color: var(--gold); }
+
+    .links { width: 100%; max-width: 600px; padding: 24px 20px 0; display: flex; flex-direction: column; gap: 12px; }
+
+    .link-card { display: flex; align-items: center; gap: 16px; background: var(--dark2); border: 1px solid var(--border); border-radius: 16px; padding: 18px 22px; text-decoration: none; color: var(--cream); transition: all 0.22s ease; position: relative; overflow: hidden; }
+    .link-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(120deg, transparent 60%, rgba(196,168,130,0.04) 100%); opacity: 0; transition: opacity 0.22s ease; }
+    .link-card:hover, .link-card:active { border-color: rgba(196,168,130,0.4); transform: translateY(-1px); box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(196,168,130,0.1); }
+    .link-card:hover::before { opacity: 1; }
+    .link-card:active { transform: translateY(0); }
+
+    .link-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 20px; }
+    .icon-yt   { background: linear-gradient(135deg, #FF0000, #CC0000); }
+    .icon-ig   { background: linear-gradient(135deg, #E1306C, #833AB4, #F77737); }
+    .icon-tt   { background: linear-gradient(135deg, #010101, #69C9D0); }
+    .icon-mail { background: linear-gradient(135deg, #2C2416, #4A3A28); border: 1px solid var(--border); }
+
+    .link-text { flex: 1; }
+    .link-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid); font-weight: 500; margin-bottom: 3px; }
+    .link-handle { font-size: 16px; font-weight: 600; color: var(--cream); letter-spacing: 0.3px; }
+    .link-arrow { color: var(--gold); font-size: 16px; opacity: 0.6; flex-shrink: 0; transition: transform 0.2s ease, opacity 0.2s ease; }
+    .link-card:hover .link-arrow { transform: translateX(3px); opacity: 1; }
+
+    .section-label { width: 100%; max-width: 600px; padding: 28px 24px 8px; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(122,101,80,0.5); font-weight: 500; }
+
+    .footer { width: 100%; max-width: 600px; padding: 40px 24px 0; text-align: center; }
+    .footer-divider { width: 40px; height: 1px; background: var(--gold); margin: 0 auto 20px; opacity: 0.2; }
+    .footer-text { font-size: 11px; color: rgba(122,101,80,0.5); letter-spacing: 2px; text-transform: uppercase; }
+
+    @media (max-width: 480px) { .banner { padding: 44px 24px 36px; } .link-card { padding: 16px 18px; } .link-handle { font-size: 15px; } }
+    a { -webkit-tap-highlight-color: transparent; }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    <div class="banner-eyebrow">Seattle · Trails · Cultura</div>
+    <div class="banner-name">CEEBASSH</div>
+    <div class="banner-divider"></div>
+    <div class="banner-tagline">Latina living fully</div>
+  </div>
+
+  <div class="profile">
+    <p class="profile-desc">Hiking, backpacking, food, and the city —<br><em>all of Seattle through a Latina lens.</em></p>
+  </div>
+
+  <div class="section-label">Find me on</div>
+  <div class="links">
+    <a class="link-card" href="https://www.youtube.com/@Ceebassh" target="_blank" rel="noopener">
+      <div class="link-icon icon-yt">▶</div>
+      <div class="link-text"><div class="link-label">YouTube</div><div class="link-handle">@Ceebassh</div></div>
+      <div class="link-arrow">→</div>
+    </a>
+    <a class="link-card" href="https://www.instagram.com/ceebassh" target="_blank" rel="noopener">
+      <div class="link-icon icon-ig">◈</div>
+      <div class="link-text"><div class="link-label">Instagram</div><div class="link-handle">@ceebassh</div></div>
+      <div class="link-arrow">→</div>
+    </a>
+    <a class="link-card" href="https://www.tiktok.com/@ceebassh" target="_blank" rel="noopener">
+      <div class="link-icon icon-tt">♪</div>
+      <div class="link-text"><div class="link-label">TikTok</div><div class="link-handle">@ceebassh</div></div>
+      <div class="link-arrow">→</div>
+    </a>
+  </div>
+
+  <div class="section-label">Get in touch</div>
+  <div class="links">
+    <a class="link-card" href="mailto:contact.ceebassh@gmail.com">
+      <div class="link-icon icon-mail">✉</div>
+      <div class="link-text"><div class="link-label">Brand Inquiries</div><div class="link-handle">contact.ceebassh@gmail.com</div></div>
+      <div class="link-arrow">→</div>
+    </a>
+  </div>
+
+  <div class="footer"><div class="footer-divider"></div><div class="footer-text">© 2026 Ceebassh</div></div>
+
+</body>
+</html>
