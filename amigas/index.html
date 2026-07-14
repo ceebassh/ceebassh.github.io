@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Amigas en Seattle</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:    #111008;
+      --dark2:   #1C1810;
+      --dark3:   #221C12;
+      --gold:    #C4A882;
+      --gold2:   #E8D4B8;
+      --cream:   #F5EDE0;
+      --mid:     #7A6550;
+      --border:  rgba(196,168,130,0.15);
+      --heart:   #E8B86D;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 0 60px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── BANNER ── */
+    .banner {
+      width: 100%;
+      max-width: 600px;
+      background: linear-gradient(160deg, #1C1810 0%, #2C2416 50%, #1A1610 100%);
+      padding: 52px 32px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 120%, rgba(196,168,130,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 20% 20%, rgba(196,168,130,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .banner-eyebrow {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      opacity: 0.8;
+    }
+
+    .banner-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 9vw, 52px);
+      font-weight: 900;
+      color: var(--cream);
+      letter-spacing: 1px;
+      line-height: 1.1;
+      position: relative;
+    }
+
+    .banner-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 20px auto;
+      opacity: 0.6;
+    }
+
+    .banner-tagline {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--mid);
+      font-weight: 400;
+    }
+
+    /* ── PROFILE / WELCOME AREA ── */
+    .profile {
+      width: 100%;
+      max-width: 600px;
+      padding: 28px 24px 8px;
+      text-align: center;
+    }
+
+    .profile-desc {
+      font-size: 14px;
+      color: var(--gold2);
+      line-height: 1.8;
+      font-weight: 300;
+      letter-spacing: 0.3px;
+    }
+
+    .profile-desc em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .note-box {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px 24px 0;
+      padding: 16px 20px;
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--gold);
+      border-radius: 10px;
+      max-width: 552px;
+    }
+
+    .note-box p {
+      font-size: 12.5px;
+      color: var(--mid);
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    .note-box p strong { color: var(--gold2); font-weight: 500; }
+
+    /* ── QUICK OVERVIEW (top) ── */
+    .quick-overview {
+      width: 100%;
+      max-width: 552px;
+      margin: 22px 24px 0;
+      display: flex;
+      gap: 10px;
+    }
+
+    .quick-card {
+      flex: 1;
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 14px;
+      text-align: center;
+    }
+
+    .quick-icon { font-size: 20px; margin-bottom: 8px; }
+
+    .quick-label {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .quick-desc {
+      font-size: 11.5px;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    .quick-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      width: 100%;
+      max-width: 600px;
+      padding: 32px 24px 4px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(122,101,80,0.6);
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .section-sub {
+      width: 100%;
+      max-width: 600px;
+      padding: 4px 24px 4px;
+      font-size: 13px;
+      color: var(--mid);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* ── QR CARD ── */
+    .qr-card {
+      width: 100%;
+      max-width: 552px;
+      margin: 16px 24px 0;
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px 24px;
+      text-align: center;
+    }
+
+    .qr-frame {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 18px;
+      background: var(--cream);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .qr-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .qr-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--dark);
+      opacity: 0.4;
+      padding: 16px;
+    }
+
+    .qr-placeholder-icon { font-size: 36px; }
+
+    .qr-placeholder-text {
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--mid);
+    }
+
+    .qr-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: #08240F;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 26px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin-top: 4px;
+      transition: transform 0.15s ease;
+    }
+
+    .qr-cta:active { transform: scale(0.97); }
+
+    .qr-caption {
+      font-size: 11.5px;
+      color: var(--mid);
+      margin-top: 14px;
+      line-height: 1.6;
+    }
+
+    /* ── STEPS ── */
+    .steps {
+      width: 100%;
+      max-width: 600px;
+      padding: 16px 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .step-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--dark3);
+      border: 1px solid rgba(196,168,130,0.3);
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-text { padding-top: 3px; }
+
+    .step-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 3px;
+    }
+
+    .step-detail {
+      font-size: 12.5px;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    .step-icon { font-size: 18px; margin-right: 4px; }
+
+    /* ── LINK CARD (reused for Heylo / Socials) ── */
+    .links {
+      width: 100%;
+      max-width: 600px;
+      padding: 16px 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 22px;
+      text-decoration: none;
+      color: var(--cream);
+      transition: all 0.22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-card:hover,
+    .link-card:active {
+      border-color: rgba(196,168,130,0.4);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(196,168,130,0.1);
+    }
+
+    .link-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 20px;
+    }
+
+    .icon-heylo  { background: linear-gradient(135deg, #6C5CE7, #4834B8); }
+    .icon-social { background: linear-gradient(135deg, #2C2416, #4A3A28); border: 1px solid var(--border); }
+
+    .link-text { flex: 1; }
+
+    .link-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--mid);
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    .link-handle {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: 0.2px;
+    }
+
+    .link-sub {
+      font-size: 12px;
+      color: var(--mid);
+      margin-top: 4px;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .link-arrow {
+      color: var(--gold);
+      font-size: 16px;
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      width: 100%;
+      max-width: 600px;
+      padding: 40px 24px 0;
+      text-align: center;
+    }
+
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 20px;
+      opacity: 0.2;
+    }
+
+    .footer-text {
+      font-size: 11px;
+      color: rgba(122,101,80,0.5);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 480px) {
+      .banner { padding: 44px 24px 36px; }
+      .link-card { padding: 16px 18px; }
+      .qr-frame { width: 180px; height: 180px; }
+    }
+
+    a { -webkit-tap-highlight-color: transparent; }
+  </style>
+</head>
+<body>
+
+  <!-- BANNER -->
+  <div class="banner">
+    <div class="banner-eyebrow">Seattle</div>
+    <div class="banner-name">Amigas en Seattle 🫶💛</div>
+    <div class="banner-divider"></div>
+    <div class="banner-tagline">bienvenidas, amigas</div>
+  </div>
+
+  <!-- QUICK OVERVIEW -->
+  <div class="quick-overview">
+    <div class="quick-card">
+      <div class="quick-icon">💬</div>
+      <div class="quick-label">WhatsApp</div>
+      <div class="quick-desc">daily chat, vibes &amp; the love</div>
+    </div>
+    <div class="quick-card">
+      <div class="quick-icon">📅</div>
+      <div class="quick-label">Heylo</div>
+      <div class="quick-desc">events &amp; subgroups, organized</div>
+      <a class="quick-link" href="https://heylo.com/invite/A0m2WilY" target="_blank" rel="noopener">Open Heylo →</a>
+    </div>
+  </div>
+
+  <!-- WELCOME -->
+  <div class="profile">
+    <p class="profile-desc">
+      you found us — <em>welcome</em>. this is a very welcoming community, so please don't be shy: jump in, introduce yourself, and say hi. we mean it.
+    </p>
+  </div>
+
+  <div class="note-box">
+    <p>
+      <strong>heads up:</strong> WhatsApp won't show you our past messages or event history once you join — that's just how WhatsApp communities work, not a you thing. don't let that stop you. everything current and upcoming, you'll see. and for the full event archive and subgroups, check Heylo above (or the card further down).
+    </p>
+  </div>
+
+  <!-- JOIN -->
+  <div class="section-label">Join the group chat</div>
+  <div class="section-sub">this is where all the vibes and the love live 🫶</div>
+
+  <div class="qr-card">
+    <div class="qr-frame">
+      <img src="qr-code.png?v=2" alt="Amigas en Seattle WhatsApp QR code"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="qr-placeholder" style="display:none; position:absolute;">
+        <div class="qr-placeholder-icon">📷</div>
+        <div class="qr-placeholder-text">QR code coming soon</div>
+      </div>
+    </div>
+    <p class="qr-caption">you're probably viewing this on your phone — so screenshot the code above, then follow the steps below</p>
+  </div>
+
+  <!-- HOW TO SCAN -->
+  <div class="section-label">How to join with the QR code</div>
+  <div class="section-sub">since you're likely looking at this on the same phone you'll use to join, here's the easiest way — no second device needed</div>
+  <div class="steps">
+
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <div class="step-title"><span class="step-icon">📸</span>Screenshot the QR code</div>
+        <div class="step-detail">Take a screenshot of the code above (or press and hold the image and save it) so it's sitting in your Photos.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <div class="step-title"><span class="step-icon">💬</span>Open WhatsApp</div>
+        <div class="step-detail">Go to the Chats tab.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <div class="step-title"><span class="step-icon">📷</span>Tap the camera / QR icon</div>
+        <div class="step-detail">Top of the Chats tab (or Settings → QR Code) — this opens WhatsApp's built-in scanner.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <div class="step-text">
+        <div class="step-title"><span class="step-icon">🖼️</span>Choose from your photos</div>
+        <div class="step-detail">Inside the scanner, tap the small photo/gallery icon and select the screenshot you just saved — WhatsApp reads QR codes from photos, so you don't need to point your camera at your own screen.</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">5</div>
+      <div class="step-text">
+        <div class="step-title"><span class="step-icon">✅</span>Tap "Join Community"</div>
+        <div class="step-detail">A preview of Amigas en Seattle will pop up. Tap join, and you're in — say hi!</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- HEYLO -->
+  <div class="section-label">Stay organized</div>
+  <div class="links">
+    <a class="link-card" href="https://heylo.com/invite/A0m2WilY" target="_blank" rel="noopener">
+      <div class="link-icon icon-heylo">📅</div>
+      <div class="link-text">
+        <div class="link-label">Heylo</div>
+        <div class="link-handle">Events &amp; Subgroups</div>
+        <div class="link-sub">this is where we organize all of our events — more specific, more organized. WhatsApp is the vibes, Heylo is the plan.</div>
+      </div>
+      <div class="link-arrow">→</div>
+    </a>
+  </div>
+
+  <!-- SOCIALS -->
+  <div class="section-label">More Ceebassh</div>
+  <div class="links">
+    <a class="link-card" href="https://ceebassh.github.io" target="_blank" rel="noopener">
+      <div class="link-icon icon-social">✦</div>
+      <div class="link-text">
+        <div class="link-label">Follow along</div>
+        <div class="link-handle">TikTok · YouTube · Instagram</div>
+      </div>
+      <div class="link-arrow">→</div>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-divider"></div>
+    <div class="footer-text">Amigas en Seattle 🫶💛</div>
+  </div>
+
+</body>
+</html>
