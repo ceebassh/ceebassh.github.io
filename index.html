@@ -33,6 +33,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* ── BANNER ── */
     .banner {
       width: 100%;
       max-width: 600px;
@@ -88,6 +89,7 @@
       font-weight: 400;
     }
 
+    /* ── PROFILE AREA ── */
     .profile {
       width: 100%;
       max-width: 600px;
@@ -103,6 +105,12 @@
       letter-spacing: 0.3px;
     }
 
+    .profile-desc em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* ── LINKS CONTAINER ── */
     .links {
       width: 100%;
       max-width: 600px;
@@ -112,6 +120,7 @@
       gap: 12px;
     }
 
+    /* ── LINK CARD ── */
     .link-card {
       display: flex;
       align-items: center;
@@ -144,6 +153,7 @@
     }
 
     .link-card:hover::before { opacity: 1; }
+
     .link-card:active { transform: translateY(0); }
 
     .link-icon {
@@ -161,6 +171,8 @@
     .icon-ig   { background: linear-gradient(135deg, #E1306C, #833AB4, #F77737); }
     .icon-tt   { background: linear-gradient(135deg, #010101, #69C9D0); }
     .icon-mail { background: linear-gradient(135deg, #2C2416, #4A3A28); border: 1px solid var(--border); }
+    .icon-aes  { background: #F5EDE0; padding: 5px; }
+    .icon-aes svg { width: 100%; height: 100%; }
 
     .link-text { flex: 1; }
 
@@ -193,6 +205,7 @@
       opacity: 1;
     }
 
+    /* ── SECTION LABEL ── */
     .section-label {
       width: 100%;
       max-width: 600px;
@@ -204,6 +217,7 @@
       font-weight: 500;
     }
 
+    /* ── FOOTER ── */
     .footer {
       width: 100%;
       max-width: 600px;
@@ -226,17 +240,20 @@
       text-transform: uppercase;
     }
 
+    /* ── MOBILE TWEAKS ── */
     @media (max-width: 480px) {
       .banner { padding: 44px 24px 36px; }
       .link-card { padding: 16px 18px; }
       .link-handle { font-size: 15px; }
     }
 
+    /* ── TAP HIGHLIGHT ── */
     a { -webkit-tap-highlight-color: transparent; }
   </style>
 </head>
 <body>
 
+  <!-- BANNER -->
   <div class="banner">
     <div class="banner-eyebrow">Seattle</div>
     <div class="banner-name">CEEBASSH</div>
@@ -244,59 +261,102 @@
     <div class="banner-tagline">making it up as i go</div>
   </div>
 
+  <!-- PROFILE -->
   <div class="profile">
-    <p class="profile-desc">i hike, i eat, i explore.</p>
+    <p class="profile-desc">
+      i hike, i eat, i explore.
+    </p>
   </div>
 
+  <!-- SOCIAL LINKS -->
   <div class="section-label">Find me on</div>
   <div class="links">
 
     <a class="link-card" href="https://www.youtube.com/@Ceebassh" target="_blank" rel="noopener">
-      <div class="link-icon icon-yt">&#9654;</div>
+      <div class="link-icon icon-yt">▶</div>
       <div class="link-text">
         <div class="link-label">YouTube</div>
         <div class="link-handle">@Ceebassh</div>
       </div>
-      <div class="link-arrow">&#8594;</div>
+      <div class="link-arrow">→</div>
     </a>
 
     <a class="link-card" href="https://www.instagram.com/ceebassh" target="_blank" rel="noopener">
-      <div class="link-icon icon-ig">&#9672;</div>
+      <div class="link-icon icon-ig">◈</div>
       <div class="link-text">
         <div class="link-label">Instagram</div>
         <div class="link-handle">@ceebassh</div>
       </div>
-      <div class="link-arrow">&#8594;</div>
+      <div class="link-arrow">→</div>
     </a>
 
     <a class="link-card" href="https://www.tiktok.com/@ceebassh" target="_blank" rel="noopener">
-      <div class="link-icon icon-tt">&#9834;</div>
+      <div class="link-icon icon-tt">♪</div>
       <div class="link-text">
         <div class="link-label">TikTok</div>
         <div class="link-handle">@ceebassh</div>
       </div>
-      <div class="link-arrow">&#8594;</div>
+      <div class="link-arrow">→</div>
     </a>
 
   </div>
 
+  <!-- COMMUNITY -->
+  <div class="section-label">Join the community</div>
+  <div class="links">
+
+    <a class="link-card" href="https://heylo.com/invite/MdwI88v" target="_blank" rel="noopener">
+      <div class="link-icon icon-aes">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img">
+          <title>Amigas en Seattle (AES) sunburst medallion logo</title>
+          <g transform="rotate(0 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(22.5 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(45 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(67.5 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(90 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(112.5 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(135 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(157.5 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(180 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(202.5 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(225 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(247.5 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(270 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(292.5 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(315 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <g transform="rotate(337.5 100 100)"><ellipse cx="100" cy="35" rx="7" ry="18" fill="#1E2A8A"/></g>
+          <circle cx="100" cy="100" r="45" fill="#FFFFFF" stroke="#1E2A8A" stroke-width="2"/>
+          <text x="100" y="107" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="19" letter-spacing="3.5" fill="#1E2A8A">AES</text>
+        </svg>
+      </div>
+      <div class="link-text">
+        <div class="link-label">Community</div>
+        <div class="link-handle">Amigas en Seattle</div>
+      </div>
+      <div class="link-arrow">→</div>
+    </a>
+
+  </div>
+
+  <!-- EMAIL -->
   <div class="section-label">Get in touch</div>
   <div class="links">
 
     <a class="link-card" href="mailto:contact.ceebassh@gmail.com">
-      <div class="link-icon icon-mail">&#9993;</div>
+      <div class="link-icon icon-mail">✉</div>
       <div class="link-text">
         <div class="link-label">Say Hi</div>
         <div class="link-handle">contact.ceebassh@gmail.com</div>
       </div>
-      <div class="link-arrow">&#8594;</div>
+      <div class="link-arrow">→</div>
     </a>
 
   </div>
 
+  <!-- FOOTER -->
   <div class="footer">
     <div class="footer-divider"></div>
-    <div class="footer-text">&#169; 2026 Ceebassh</div>
+    <div class="footer-text">© 2026 Ceebassh</div>
   </div>
 
 </body>
