@@ -42,28 +42,6 @@ body {
   overflow: hidden;
 }
 
-.banner::before, .banner::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 14px;
-  background: radial-gradient(circle at 10px 7px, var(--white) 7px, transparent 7.5px) 0 0 / 20px 14px repeat-x;
-}
-.banner::before { top: -7px; }
-.banner::after { bottom: -7px; }
-
-.banner-sidecut {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 14px;
-  background: radial-gradient(circle at 7px 10px, var(--white) 7px, transparent 7.5px) 0 0 / 14px 20px repeat-y;
-  z-index: 2;
-}
-.banner-sidecut.left { left: -7px; }
-.banner-sidecut.right { right: -7px; }
-
 .sunburst {
   width: 84px;
   height: 84px;
@@ -259,8 +237,6 @@ a { -webkit-tap-highlight-color: transparent; }
 <body>
 
 <div class="banner">
-  <div class="banner-sidecut left"></div>
-  <div class="banner-sidecut right"></div>
   <svg class="sunburst" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     <g fill="#FFFFFF">
       <ellipse cx="100" cy="30" rx="14" ry="34"/>
@@ -282,37 +258,13 @@ a { -webkit-tap-highlight-color: transparent; }
   <div class="banner-eyebrow">Seattle</div>
   <div class="banner-name">Amigas en Seattle 💛</div>
   <div class="banner-divider"></div>
-  <div class="banner-tagline">el grupo que puedes hacer tuyo, hazlo tuyo y compartelo con todas</div>
+  <div class="banner-tagline">un grupo para todas</div>
 </div>
 
 <div class="profile">
   <p class="profile-desc">
     bienvenidas al grupo amigas.
   </p>
-</div>
-
-<div class="section-label">Stay Organized</div>
-<div class="section-sub">todos nuestros events y subgroups viven aqui, this is the plan</div>
-<div class="links">
-  <a class="link-card" href="https://heylo.com/invite/A0m2WilY" target="_blank" rel="noopener">
-    <div class="link-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="3" y="4" width="18" height="17" rx="3" stroke="#1B2A6B" stroke-width="1.8"/>
-        <path d="M3 9H21" stroke="#1B2A6B" stroke-width="1.8"/>
-        <path d="M8 2V6" stroke="#1B2A6B" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M16 2V6" stroke="#1B2A6B" stroke-width="1.8" stroke-linecap="round"/>
-        <circle cx="8" cy="13.5" r="1.4" fill="#1B2A6B"/>
-        <circle cx="12" cy="13.5" r="1.4" fill="#1B2A6B"/>
-        <circle cx="16" cy="13.5" r="1.4" fill="#1B2A6B"/>
-      </svg>
-    </div>
-    <div class="link-text">
-      <div class="link-label">Heylo</div>
-      <div class="link-handle">Events &amp; Subgroups</div>
-      <div class="link-sub">aqui es donde tenemos todos los eventos, anyone can schedule an event aqui. si quieres hostear, aqui es donde lo agregas, or you can just join an event que alguien mas esta hosting</div>
-    </div>
-    <div class="link-arrow">→</div>
-  </a>
 </div>
 
 <div class="section-label">Follow Along</div>
@@ -335,6 +287,30 @@ a { -webkit-tap-highlight-color: transparent; }
     <div class="link-text">
       <div class="link-label">TikTok</div>
       <div class="link-handle">@amigasenseattle</div>
+    </div>
+    <div class="link-arrow">→</div>
+  </a>
+</div>
+
+<div class="section-label">Stay Organized</div>
+<div class="section-sub">todos nuestros events y subgroups viven aqui, this is the plan</div>
+<div class="links">
+  <a class="link-card" href="https://heylo.com/invite/A0m2WilY" target="_blank" rel="noopener">
+    <div class="link-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="4" width="18" height="17" rx="3" stroke="#1B2A6B" stroke-width="1.8"/>
+        <path d="M3 9H21" stroke="#1B2A6B" stroke-width="1.8"/>
+        <path d="M8 2V6" stroke="#1B2A6B" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M16 2V6" stroke="#1B2A6B" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="8" cy="13.5" r="1.4" fill="#1B2A6B"/>
+        <circle cx="12" cy="13.5" r="1.4" fill="#1B2A6B"/>
+        <circle cx="16" cy="13.5" r="1.4" fill="#1B2A6B"/>
+      </svg>
+    </div>
+    <div class="link-text">
+      <div class="link-label">Heylo</div>
+      <div class="link-handle">Events &amp; Subgroups</div>
+      <div class="link-sub">aqui es donde tenemos todos los eventos, anyone can schedule an event aqui. si quieres hostear, aqui es donde lo agregas, or you can just join an event que alguien mas esta hosting</div>
     </div>
     <div class="link-arrow">→</div>
   </a>
