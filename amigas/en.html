@@ -10,23 +10,19 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --cobalt: #1B2A6B;
-  --cobalt-dark: #121E52;
-  --cobalt-light: #2E3F8F;
-  --gold: #E3A438;
-  --terracotta: #C1592D;
-  --cream: #FFF8EC;
+  --blue: #1B2A6B;
+  --blue-dark: #121E52;
+  --blue-light: #2E3F8F;
+  --blue-soft: rgba(27,42,107,0.06);
+  --border: rgba(27,42,107,0.16);
   --white: #FFFFFF;
-  --ink: #241B10;
-  --mid: #6B6455;
-  --border: rgba(27,42,107,0.14);
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--cream);
-  color: var(--ink);
+  background: var(--white);
+  color: var(--blue);
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
   display: flex;
@@ -36,25 +32,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* BANNER */
 .banner {
   width: 100%;
   max-width: 600px;
-  background: linear-gradient(160deg, var(--cobalt-dark) 0%, var(--cobalt) 55%, var(--cobalt-light) 100%);
+  background: linear-gradient(160deg, var(--blue-dark) 0%, var(--blue) 55%, var(--blue-light) 100%);
   padding: 44px 32px 34px;
   text-align: center;
   position: relative;
   overflow: hidden;
-}
-
-.banner::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 70% 50% at 15% 0%, rgba(227,164,56,0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 90% 100%, rgba(193,89,45,0.18) 0%, transparent 60%);
-  pointer-events: none;
 }
 
 .sunburst {
@@ -68,9 +53,9 @@ body {
   font-size: 10px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--white);
   margin-bottom: 12px;
-  opacity: 0.9;
+  opacity: 0.75;
   font-weight: 600;
 }
 
@@ -81,36 +66,36 @@ body {
   color: var(--white);
   letter-spacing: 0.5px;
   line-height: 1.1;
-  position: relative;
 }
 
 .banner-divider {
   width: 52px;
   height: 2px;
-  background: var(--gold);
+  background: var(--white);
   margin: 18px auto;
   border-radius: 2px;
+  opacity: 0.6;
 }
 
 .banner-tagline {
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
-  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.9);
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 380px;
+  margin: 0 auto;
 }
 
-/* SCALLOP DIVIDER - talavera inspired */
 .scallop {
   width: 100%;
   max-width: 600px;
   height: 14px;
   background:
-    radial-gradient(circle at 10px 0, transparent 9px, var(--gold) 9px, var(--gold) 10px, transparent 10px) 0 0 / 20px 14px repeat-x;
-  opacity: 0.55;
+    radial-gradient(circle at 10px 0, transparent 9px, var(--blue) 9px, var(--blue) 10px, transparent 10px) 0 0 / 20px 14px repeat-x;
+  opacity: 0.35;
 }
 
-/* WELCOME */
 .profile {
   width: 100%;
   max-width: 600px;
@@ -120,14 +105,13 @@ body {
 
 .profile-desc {
   font-size: 15px;
-  color: var(--ink);
+  color: var(--blue);
   line-height: 1.8;
   font-weight: 400;
 }
 
-.profile-desc strong { color: var(--cobalt); font-weight: 700; }
+.profile-desc strong { font-weight: 700; }
 
-/* SECTION LABEL */
 .section-label {
   width: 100%;
   max-width: 600px;
@@ -135,7 +119,7 @@ body {
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--terracotta);
+  color: var(--blue);
   font-weight: 700;
   text-align: center;
 }
@@ -145,12 +129,12 @@ body {
   max-width: 600px;
   padding: 0 24px 4px;
   font-size: 13px;
-  color: var(--mid);
+  color: var(--blue);
+  opacity: 0.7;
   text-align: center;
   line-height: 1.6;
 }
 
-/* LINK CARDS */
 .links {
   width: 100%;
   max-width: 600px;
@@ -169,13 +153,12 @@ body {
   border-radius: 16px;
   padding: 18px 20px;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--blue);
   transition: all 0.2s ease;
-  box-shadow: 0 2px 10px rgba(27,42,107,0.05);
 }
 
 .link-card:hover, .link-card:active {
-  border-color: var(--gold);
+  border-color: var(--blue);
   transform: translateY(-1px);
   box-shadow: 0 8px 24px rgba(27,42,107,0.12);
 }
@@ -188,13 +171,11 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-size: 21px;
-  color: white;
+  background: var(--blue-soft);
+  border: 1px solid var(--border);
 }
 
-.icon-heylo { background: linear-gradient(135deg, var(--cobalt), var(--cobalt-light)); }
-.icon-insta { background: linear-gradient(135deg, #E3A438, #C1592D, #B23A6B); }
-.icon-tiktok { background: linear-gradient(135deg, #1B2A6B, #241B10); }
+.link-icon img, .link-icon svg { width: 24px; height: 24px; }
 
 .link-text { flex: 1; }
 
@@ -202,7 +183,8 @@ body {
   font-size: 10.5px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--mid);
+  color: var(--blue);
+  opacity: 0.6;
   font-weight: 600;
   margin-bottom: 3px;
 }
@@ -210,90 +192,24 @@ body {
 .link-handle {
   font-size: 15.5px;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--blue);
 }
 
 .link-sub {
   font-size: 12px;
-  color: var(--mid);
+  color: var(--blue);
+  opacity: 0.65;
   margin-top: 3px;
   line-height: 1.5;
 }
 
 .link-arrow {
-  color: var(--terracotta);
+  color: var(--blue);
   font-size: 17px;
-  opacity: 0.7;
+  opacity: 0.5;
   flex-shrink: 0;
 }
 
-/* LEADERS */
-.leaders {
-  width: 100%;
-  max-width: 600px;
-  padding: 14px 20px 0;
-  display: flex;
-  gap: 12px;
-}
-
-.leader-card {
-  flex: 1;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 22px 16px;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(27,42,107,0.05);
-}
-
-.leader-avatar {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  margin: 0 auto 12px;
-  background: linear-gradient(135deg, var(--gold), var(--terracotta));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 20px;
-  color: white;
-}
-
-.leader-name {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--cobalt);
-  margin-bottom: 2px;
-}
-
-.leader-role {
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--terracotta);
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.leader-handles {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.leader-handles a {
-  font-size: 12px;
-  color: var(--mid);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.leader-handles a:hover { color: var(--cobalt); }
-
-/* FOOTER */
 .footer {
   width: 100%;
   max-width: 600px;
@@ -304,15 +220,16 @@ body {
 .footer-divider {
   width: 40px;
   height: 2px;
-  background: var(--gold);
+  background: var(--blue);
   margin: 0 auto 18px;
   border-radius: 2px;
-  opacity: 0.6;
+  opacity: 0.3;
 }
 
 .footer-text {
   font-size: 11px;
-  color: var(--mid);
+  color: var(--blue);
+  opacity: 0.6;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 600;
@@ -321,7 +238,6 @@ body {
 @media (max-width: 480px) {
   .banner { padding: 38px 24px 30px; }
   .link-card { padding: 16px 16px; }
-  .leaders { flex-direction: row; }
 }
 
 a { -webkit-tap-highlight-color: transparent; }
@@ -331,7 +247,7 @@ a { -webkit-tap-highlight-color: transparent; }
 
 <div class="banner">
   <svg class="sunburst" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <g fill="#E3A438">
+    <g fill="#FFFFFF">
       <ellipse cx="100" cy="30" rx="14" ry="34"/>
       <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(30 100 100)"/>
       <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(60 100 100)"/>
@@ -345,19 +261,19 @@ a { -webkit-tap-highlight-color: transparent; }
       <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(300 100 100)"/>
       <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(330 100 100)"/>
     </g>
-    <circle cx="100" cy="100" r="52" fill="#1B2A6B" stroke="#FFF8EC" stroke-width="3"/>
-    <text x="100" y="108" text-anchor="middle" font-family="Playfair Display, serif" font-weight="700" font-size="34" fill="#FFF8EC">AES</text>
+    <circle cx="100" cy="100" r="52" fill="#1B2A6B" stroke="#FFFFFF" stroke-width="3"/>
+    <text x="100" y="108" text-anchor="middle" font-family="Playfair Display, serif" font-weight="700" font-size="34" fill="#FFFFFF">AES</text>
   </svg>
   <div class="banner-eyebrow">Seattle</div>
   <div class="banner-name">Amigas en Seattle 💛</div>
   <div class="banner-divider"></div>
-  <div class="banner-tagline">conectar · explorar · crecer</div>
+  <div class="banner-tagline">el grupo que puedes hacer tuyo, hazlo tuyo y compartelo con todas</div>
 </div>
 <div class="scallop"></div>
 
 <div class="profile">
   <p class="profile-desc">
-    hola amigas! bienvenidas a nuestra <strong>family</strong> aqui en seattle. somos un grupo de mujeres que salimos a explorar, paddleboardear, hacer hikes, y crear community juntas. no seas shy, entra y sientete como en casa, aqui todas somos amigas.
+    hola amigas! bienvenidas a nuestra <strong>family</strong> aqui en seattle. somos un grupo de mujeres que salimos a explorar, paddleboardear, hacer hikes, y crear community juntas. don't be shy, entra y sientete como en tu casa. aqui todas somos amigas.
   </p>
 </div>
 
@@ -365,7 +281,17 @@ a { -webkit-tap-highlight-color: transparent; }
 <div class="section-sub">todos nuestros events y subgroups viven aqui, this is the plan</div>
 <div class="links">
   <a class="link-card" href="https://heylo.com/invite/A0m2WilY" target="_blank" rel="noopener">
-    <div class="link-icon icon-heylo">📅</div>
+    <div class="link-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="4" width="18" height="17" rx="3" stroke="#1B2A6B" stroke-width="1.8"/>
+        <path d="M3 9H21" stroke="#1B2A6B" stroke-width="1.8"/>
+        <path d="M8 2V6" stroke="#1B2A6B" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M16 2V6" stroke="#1B2A6B" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="8" cy="13.5" r="1.4" fill="#1B2A6B"/>
+        <circle cx="12" cy="13.5" r="1.4" fill="#1B2A6B"/>
+        <circle cx="16" cy="13.5" r="1.4" fill="#1B2A6B"/>
+      </svg>
+    </div>
     <div class="link-text">
       <div class="link-label">Heylo</div>
       <div class="link-handle">Events &amp; Subgroups</div>
@@ -379,7 +305,9 @@ a { -webkit-tap-highlight-color: transparent; }
 <div class="section-sub">para fotos, videos, y updates entre events</div>
 <div class="links">
   <a class="link-card" href="https://www.instagram.com/amigasenseattle" target="_blank" rel="noopener">
-    <div class="link-icon icon-insta">📷</div>
+    <div class="link-icon">
+      <img src="https://cdn.simpleicons.org/instagram/1B2A6B" alt="Instagram" />
+    </div>
     <div class="link-text">
       <div class="link-label">Instagram</div>
       <div class="link-handle">@amigasenseattle</div>
@@ -387,37 +315,15 @@ a { -webkit-tap-highlight-color: transparent; }
     <div class="link-arrow">→</div>
   </a>
   <a class="link-card" href="https://www.tiktok.com/@amigasenseattle" target="_blank" rel="noopener">
-    <div class="link-icon icon-tiktok">🎵</div>
+    <div class="link-icon">
+      <img src="https://cdn.simpleicons.org/tiktok/1B2A6B" alt="TikTok" />
+    </div>
     <div class="link-text">
       <div class="link-label">TikTok</div>
       <div class="link-handle">@amigasenseattle</div>
     </div>
     <div class="link-arrow">→</div>
   </a>
-</div>
-
-<div class="section-label">Meet the Leaders</div>
-<div class="section-sub">las que estamos detras de amigas en seattle</div>
-<div class="leaders">
-  <div class="leader-card">
-    <div class="leader-avatar">C</div>
-    <div class="leader-name">Carolina</div>
-    <div class="leader-role">Leader</div>
-    <div class="leader-handles">
-      <a href="https://www.instagram.com/ceebassh" target="_blank" rel="noopener">IG @ceebassh</a>
-      <a href="https://www.tiktok.com/@ceebassh" target="_blank" rel="noopener">TikTok @ceebassh</a>
-      <a href="https://www.youtube.com/@ceebassh" target="_blank" rel="noopener">YouTube @ceebassh</a>
-    </div>
-  </div>
-  <div class="leader-card">
-    <div class="leader-avatar">A</div>
-    <div class="leader-name">Ana</div>
-    <div class="leader-role">Leader</div>
-    <div class="leader-handles">
-      <a href="https://www.instagram.com/ana_na206" target="_blank" rel="noopener">IG @ana_na206</a>
-      <a href="https://www.tiktok.com/@anaoso206" target="_blank" rel="noopener">TikTok @anaoso206</a>
-    </div>
-  </div>
 </div>
 
 <div class="footer">
