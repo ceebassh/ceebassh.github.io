@@ -32,45 +32,37 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* SCALLOPED FRAME AROUND BANNER */
-.banner-frame {
-  width: 100%;
-  max-width: 600px;
-  position: relative;
-  padding: 14px;
-  background: var(--white);
-}
-
-.scallop-h {
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  height: 14px;
-  background: radial-gradient(circle at 10px 0, transparent 9px, var(--blue) 9px, var(--blue) 10px, transparent 10px) 0 0 / 20px 14px repeat-x;
-  opacity: 0.45;
-}
-.scallop-h.top { top: 0; }
-.scallop-h.bottom { bottom: 0; transform: scaleY(-1); }
-
-.scallop-v {
-  position: absolute;
-  top: 14px;
-  bottom: 14px;
-  width: 14px;
-  background: radial-gradient(circle at 0 10px, transparent 9px, var(--blue) 9px, var(--blue) 10px, transparent 10px) 0 0 / 14px 20px repeat-y;
-  opacity: 0.45;
-}
-.scallop-v.left { left: 0; }
-.scallop-v.right { right: 0; transform: scaleX(-1); }
-
 .banner {
   width: 100%;
+  max-width: 600px;
   background: linear-gradient(160deg, var(--blue-dark) 0%, var(--blue) 55%, var(--blue-light) 100%);
   padding: 44px 32px 34px;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
+
+.banner::before, .banner::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: radial-gradient(circle at 10px 7px, var(--white) 7px, transparent 7.5px) 0 0 / 20px 14px repeat-x;
+}
+.banner::before { top: -7px; }
+.banner::after { bottom: -7px; }
+
+.banner-sidecut {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 14px;
+  background: radial-gradient(circle at 7px 10px, var(--white) 7px, transparent 7.5px) 0 0 / 14px 20px repeat-y;
+  z-index: 2;
+}
+.banner-sidecut.left { left: -7px; }
+.banner-sidecut.right { right: -7px; }
 
 .sunburst {
   width: 84px;
@@ -266,35 +258,31 @@ a { -webkit-tap-highlight-color: transparent; }
 </head>
 <body>
 
-<div class="banner-frame">
-  <div class="scallop-h top"></div>
-  <div class="scallop-h bottom"></div>
-  <div class="scallop-v left"></div>
-  <div class="scallop-v right"></div>
-  <div class="banner">
-    <svg class="sunburst" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <g fill="#FFFFFF">
-        <ellipse cx="100" cy="30" rx="14" ry="34"/>
-        <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(30 100 100)"/>
-        <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(60 100 100)"/>
-        <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(90 100 100)"/>
-        <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(120 100 100)"/>
-        <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(150 100 100)"/>
-        <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(180 100 100)"/>
-        <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(210 100 100)"/>
-        <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(240 100 100)"/>
-        <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(270 100 100)"/>
-        <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(300 100 100)"/>
-        <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(330 100 100)"/>
-      </g>
-      <circle cx="100" cy="100" r="52" fill="#1B2A6B" stroke="#FFFFFF" stroke-width="3"/>
-      <text x="100" y="108" text-anchor="middle" font-family="Playfair Display, serif" font-weight="700" font-size="34" fill="#FFFFFF">AES</text>
-    </svg>
-    <div class="banner-eyebrow">Seattle</div>
-    <div class="banner-name">Amigas en Seattle 💛</div>
-    <div class="banner-divider"></div>
-    <div class="banner-tagline">el grupo que puedes hacer tuyo, hazlo tuyo y compartelo con todas</div>
-  </div>
+<div class="banner">
+  <div class="banner-sidecut left"></div>
+  <div class="banner-sidecut right"></div>
+  <svg class="sunburst" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#FFFFFF">
+      <ellipse cx="100" cy="30" rx="14" ry="34"/>
+      <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(30 100 100)"/>
+      <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(60 100 100)"/>
+      <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(90 100 100)"/>
+      <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(120 100 100)"/>
+      <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(150 100 100)"/>
+      <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(180 100 100)"/>
+      <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(210 100 100)"/>
+      <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(240 100 100)"/>
+      <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(270 100 100)"/>
+      <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(300 100 100)"/>
+      <ellipse cx="100" cy="30" rx="14" ry="34" transform="rotate(330 100 100)"/>
+    </g>
+    <circle cx="100" cy="100" r="52" fill="#1B2A6B" stroke="#FFFFFF" stroke-width="3"/>
+    <text x="100" y="108" text-anchor="middle" font-family="Playfair Display, serif" font-weight="700" font-size="34" fill="#FFFFFF">AES</text>
+  </svg>
+  <div class="banner-eyebrow">Seattle</div>
+  <div class="banner-name">Amigas en Seattle 💛</div>
+  <div class="banner-divider"></div>
+  <div class="banner-tagline">el grupo que puedes hacer tuyo, hazlo tuyo y compartelo con todas</div>
 </div>
 
 <div class="profile">
